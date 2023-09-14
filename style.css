@@ -1,0 +1,54 @@
+/* Extra small devices (phones, 600px and down) */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media screen and (min-width: 992px) {
+
+body{
+    height: 10vh;
+    background-color: rgb(164, 253, 253);
+    margin: 0px;
+}
+
+header{
+    position: sticky;
+    top: 0px;
+    padding: 0px;
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://img.freepik.com/free-vector/gradient-monochromatic-abstract-background_52683-74300.jpg?t=st=1694727457~exp=1694728057~hmac=299d990bf9a3f2a7a60ab963f350f64fae06f3b332f4d2464de8d8e85ca18f13");
+    padding: 0px;
+    margin: 0px;
+}
+
+#logo{
+    width: 100px;
+    height: 100px;
+}
+
+#navbar-list{
+    list-style: none;
+}
+
+.navbar-button{
+    display: inline-block;
+}
+
+#theme-toggle{
+    display: inline-block;
+    width: 15%;
+}
+
+}
