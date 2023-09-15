@@ -16,6 +16,9 @@
     100% {background-position: center bottom;}
 }   
 
+html{
+    filter: invert(0%);
+}
 
 body{
     height: 100vh;
@@ -48,6 +51,7 @@ header{
     padding: 10px;
     width: 100px;
     height: 100px;
+    filter: invert(0%);
 }
 
 #navbar-list{
@@ -70,7 +74,7 @@ header{
     background-color: rgba(240, 248, 255, 0.422);
 }
 
-#theme-toggle{
+.theme-icon{
     display: block;
     width: 50px;
 }
