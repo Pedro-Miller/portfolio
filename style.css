@@ -54,7 +54,7 @@ body{
 }
 
 header{
-    z-index: 999;
+    z-index: 3;
     position: sticky;
     top: 0px;
     padding: 0px;
@@ -77,7 +77,7 @@ p, span{
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-duration: 30s;
-    padding: 15px;
+    padding: 15px 0px;
     margin: 0px;
     box-shadow: none
 }
@@ -107,6 +107,7 @@ p, span{
 
 .navbar-link:hover{
     background-color: var(--clr-hover);
+    transition: 0.3s ease-in-out;
 }
 
 #down-icon{
@@ -144,7 +145,7 @@ p, span{
     border-width: 10px;
     position: fixed;
     left: 40%;
-    z-index: 400;
+    z-index: 2;
     background-color: var(--clr-light);
     width: 40%;
     margin: auto;
@@ -168,6 +169,84 @@ p, span{
 .dropdown-li:hover{
     color: var(--clr-light);
     background-color: var(--clr-dark);
+    cursor: pointer;
+    transition: 1s ease-in-out;
 }
 
+#carousel-container{
+    width: 900px;
+    margin: 50px auto;
+}
+
+#carousel-slider{
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: hidden;
+}
+
+.slider-image{
+    flex-basis: 900px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 500px;
+    transform: translateX(0px);
+    transition: 1s ease-in-out;
+}
+
+#previous-button{
+    z-index: 1;
+    position: relative;
+    top: -280px;
+    left: -30px;
+    width: 60px;
+    color: var(--clr-light);
+    background-color: var(--clr-dark);
+    border-radius: 40px;
+    filter: opacity(70%);
+}
+
+#next-button{
+    z-index: 1;
+    position: relative;
+    top: -280px;
+    left: 807px;
+    width: 60px;
+    color: var(--clr-light);
+    background-color: var(--clr-dark);
+    border-radius: 40px;
+    filter: opacity(70%);
+}
+
+#next-button, #previous-button:hover{
+    cursor: pointer;
+}
+
+#bubble-container{
+    align-items: center;
+    display: flex;
+    position: relative;
+    top: -100px;
+    left: 375px;
+}
+
+.bubble{
+    border-color: var(--clr-light);
+    border-width: 2px;
+    border-style: solid;
+    margin: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: var(--clr-dark);
+}
+
+#dot{ /*29px de um pro outro*/
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: var(--clr-light);
+    transform: translateX(-135.5px) translateY(-0.5px);
+    transition: 1s ease-in-out
+    
+}
 }
