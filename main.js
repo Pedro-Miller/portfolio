@@ -5,6 +5,7 @@ const body = document.querySelector('body')
 const navbar = document.getElementById('navbar')
 const theme = localStorage.getItem('theme')
 const ourWork = document.getElementById('dropdown-ourwork')
+const dropdown = document.querySelector('#dropdown')
 
 if(theme == 'darkmode')
 {
@@ -22,11 +23,14 @@ function scrollFunction() {
 
 ourWork.addEventListener('mouseenter', dropdownourWork)
 ourWork.addEventListener('mouseleave', dropupourWork)
-function dropdownourWork(){
+dropdown.addEventListener('mouseenter', dropdownourWork)
+dropdown.addEventListener('mouseleave', dropupourWork)
 
+function dropdownourWork(){
+    dropdown.style.display = 'flex'
 }
 function dropupourWork(){
-
+    dropdown.style.display = 'none'
 }
     
 themeToggle.forEach(btn =>{btn.addEventListener('click', ()=>{

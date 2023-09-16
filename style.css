@@ -9,7 +9,7 @@
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
 :root{
-    --clr-dark: rgb(10, 7, 97);
+    --clr-dark: rgb(0, 13, 28);
     --clr-light: aliceblue;
     --clr-hover: rgba(240, 248, 255, 0.400);
     --animation-light: logo-animation-light;
@@ -54,6 +54,7 @@ body{
 }
 
 header{
+    z-index: 999;
     position: sticky;
     top: 0px;
     padding: 0px;
@@ -101,7 +102,7 @@ p, span{
     color: var(--clr-dark);
     text-shadow: 1px 1px 10px var(--clr-dark);
     font-size: 2rem;
-    padding: 45px 10px;
+    padding: 57px 10px;
 }
 
 .navbar-link:hover{
@@ -132,6 +133,41 @@ p, span{
 
 .moon{
     display: var(--theme-icon-moon);
+}
+
+#dropdown{
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    border-style: double;
+    border-color: var(--clr-dark);
+    border-width: 10px;
+    position: fixed;
+    left: 40%;
+    z-index: 400;
+    background-color: var(--clr-light);
+    width: 40%;
+    margin: auto;
+    padding: 15px;
+}
+
+.dropdown-list{
+    list-style: none;
+    padding: 0px;
+}
+
+.dropdown-li{
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    color: var(--clr-dark);
+    background-color: var(--clr-light);
+    font-size: 1.1rem;
+}
+
+.dropdown-li:hover{
+    color: var(--clr-light);
+    background-color: var(--clr-dark);
 }
 
 }
