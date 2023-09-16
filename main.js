@@ -4,6 +4,7 @@ const themeToggle = document.querySelectorAll(".theme-toggle")
 const body = document.querySelector('body')
 const navbar = document.getElementById('navbar')
 const theme = localStorage.getItem('theme')
+const ourWork = document.getElementById('dropdown-ourwork')
 
 if(theme == 'darkmode')
 {
@@ -19,6 +20,15 @@ function scrollFunction() {
     }
 }
 
+ourWork.addEventListener('mouseenter', dropdownourWork)
+ourWork.addEventListener('mouseleave', dropupourWork)
+function dropdownourWork(){
+
+}
+function dropupourWork(){
+
+}
+    
 themeToggle.forEach(btn =>{btn.addEventListener('click', ()=>{
     body.classList.toggle('darkmode')
     if(body.classList.contains('darkmode'))
@@ -30,7 +40,7 @@ themeToggle.forEach(btn =>{btn.addEventListener('click', ()=>{
         localStorage.removeItem('theme')
     }
 
-    
+
 
     
 

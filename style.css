@@ -100,12 +100,20 @@ p, span{
     text-decoration: none;
     color: var(--clr-dark);
     text-shadow: 1px 1px 10px var(--clr-dark);
-    font-size: 1.7rem;
+    font-size: 2rem;
     padding: 45px 10px;
 }
 
 .navbar-link:hover{
     background-color: var(--clr-hover);
+}
+
+#down-icon{
+    display: inline;
+    width: 50px;
+    height: 30px;
+    padding: 0px;
+    transform: translateY(6px) translateX(-6px);
 }
 
 .theme-toggle{
