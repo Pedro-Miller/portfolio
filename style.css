@@ -45,10 +45,12 @@
 
 *{
     line-height: calc(1em + 0.5rem);
+    box-sizing: border-box;
 }
 
 body{
     height: 200vh;
+    overflow-x: hidden;
     margin: 0px;
     background-color: var(--clr-light);
 }
