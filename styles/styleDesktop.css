@@ -49,7 +49,7 @@
 body{
     height: 200vh;
     overflow-x: hidden;
-    width: 100%;
+    width: -webkit-fill-available;
     margin: 0px;
     background-color: var(--clr-light);
 }

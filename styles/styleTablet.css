@@ -48,7 +48,7 @@
 
 body{
     height: 200vh;
-    width: 100%;
+    width: -webkit-fill-available;
     overflow-x: hidden;
     margin: 0px;
     background-color: var(--clr-light);
@@ -75,7 +75,7 @@ p, span{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
+    width: -webkit-fill-available;
     height: 145px;
     background-image: url("../medias/bgBlue.jpg");
     animation-name: var(--animation-light);
