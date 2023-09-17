@@ -11,6 +11,10 @@ const carouselContainer = document.querySelector('#carousel-container')
 const next = document.getElementById('next-button')
 const previous = document.getElementById('previous-button')
 const dot = document.querySelector('#dot')
+
+
+
+
 let counter = 0
 let autoslider = setInterval(nextSlide, 3000)
 let size = slides.length
@@ -56,6 +60,8 @@ function dropupourWork(){
     dropdown.style.display = 'none'
 }
     
+
+carouselContainer.addEventListener
 next.addEventListener('click', nextSlide)
 previous.addEventListener('click', previousSlide)
 
@@ -63,12 +69,12 @@ function nextSlide(){
     if(counter == (size-1)){
         counter = 0
         slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
-        dot.style.transform = 'translateX(' + (-135.5+29*counter) +'px)' + 'translateY(-0.5px)'
+        dot.style.transform = 'translateX(' + (-117.5+25*counter) +'px)' + 'translateY(-0.5px)'
     }
     else{
     counter++
     slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
-    dot.style.transform = 'translateX(' + (-135.5+29*counter) +'px)' + 'translateY(-0.5px)'
+    dot.style.transform = 'translateX(' + (-117.5+25*counter) +'px)' + 'translateY(-0.5px)'
     }
 }
 
@@ -77,14 +83,56 @@ function previousSlide(){
     if(counter == 0){
         counter = (size-1)
         slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
-        dot.style.transform = 'translateX(' + (-135.5+29*counter) +'px)' + 'translateY(-0.5px)'
+        dot.style.transform = 'translateX(' + (-117.5+25*counter) +'px)' + 'translateY(-0.5px)'
     }
     else{
     counter--
     slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
-    dot.style.transform = 'translateX(' + (-135.5+29*counter) +'px)' + 'translateY(-0.5px)'
+    dot.style.transform = 'translateX(' + (-117.5+25*counter) +'px)' + 'translateY(-0.5px)'
     }
 }
+
+carouselContainer.addEventListener("touchstart", startTouch, false);
+carouselContainer.addEventListener("touchmove", moveTouch, false);
+ 
+// Swipe Up / Down / Left / Right
+let initialX = null;
+let initialY = null;
+ 
+function startTouch(e) {
+  initialX = e.touches[0].clientX;
+  initialY = e.touches[0].clientY;
+}
+ 
+function moveTouch(e) {
+  if (initialX === null) {
+    return;
+  }
+ 
+  if (initialY === null) {
+    return;
+  }
+  let currentX = e.touches[0].clientX;
+  let currentY = e.touches[0].clientY;
+ 
+  let diffX = initialX - currentX;
+  let diffY = initialY - currentY;
+ 
+  if (Math.abs(diffX) > Math.abs(diffY)) {
+    // sliding horizontally
+    if (diffX > 0) {
+      // swiped left
+      nextSlide()
+    } 
+    else {
+      // swiped right
+      previousSlide()
+    }  
+  } 
+  }
+ 
+  initialX = null;
+  initialY = null;
 
 
 
