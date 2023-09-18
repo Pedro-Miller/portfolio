@@ -166,16 +166,17 @@ p, span{
 
 #carousel-container{
     position: absolute;
-    top: 30%;
-    left: 23%;
-    margin-left: -100px;
+    top: 200px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     width: 900px;
     padding: 0px;
 }
 
 #carousel-slider{
     display: flex;
-
     overflow-x: hidden;
 }
 
