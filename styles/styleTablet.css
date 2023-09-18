@@ -186,7 +186,7 @@ p, span{
     flex-shrink: 0;
     height: 500px;
     transform: translateX(0px);
-    transition: 1s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 
 #previous-button{
@@ -245,7 +245,7 @@ p, span{
     border-radius: 10px;
     background-color: var(--clr-light);
     transform: translateX(-117.5px) translateY(-0.5px);
-    transition: 1s;
+    transition: 0.5s;
     /*transition: 1s ease-in-out*/
     
 }

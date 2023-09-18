@@ -10,11 +10,16 @@ const next = document.getElementById('next-button')
 const previous = document.getElementById('previous-button')
 const dot = document.querySelector('#dot')
 let counter = 0
-let autoslider = setInterval(nextSlide, 3000)
 let size = slides.length
 let initialX = null;
 let initialY = null;
+let autoslider
 
+export function autoSlideHandler(){
+    if(screen.width > 1300){
+        autoslider = setInterval(nextSlide, 3000)
+    }
+}
 
 export function eventListenerHandler(){
     carouselContainer.addEventListener('mouseenter', autoslideStop)

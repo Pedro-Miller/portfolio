@@ -5,4 +5,5 @@ window.onload= function(){
     fun.eventListenerHandler()
     fun.themeToggleHandler()
     fun.scrollHandler()
+    fun.autoSlideHandler()
 }
