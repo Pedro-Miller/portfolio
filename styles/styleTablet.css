@@ -244,7 +244,7 @@ p, span{
     height: 10px;
     border-radius: 10px;
     background-color: var(--clr-light);
-    transform: translateX(-117.5px);
+    transform: translateX(-117.5px) translateY(-0.5px);
     transition: 1s;
     /*transition: 1s ease-in-out*/
     
