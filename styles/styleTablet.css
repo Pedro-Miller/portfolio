@@ -44,18 +44,20 @@
 *{
     line-height: calc(1em + 0.5rem);
     box-sizing: border-box;
+    padding: 0px;
 }
 
 html{
-    overflow-x: hidden;
-    max-width: 1200px;
+    max-width: 1300px !important;
+    padding: 0px;
 }
 
 body{
+    max-width: 1300px;
     height: 200vh;
     width: 100% !important;
-    overflow-x: hidden;
     margin: 0px;
+    padding: 0px;
     background-color: var(--clr-light);
 }
 
@@ -77,6 +79,8 @@ p, span{
 }
 
 #navbar{
+    position: sticky;
+    top: 0px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -87,7 +91,6 @@ p, span{
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-duration: 30s;
-    padding: 15px 0px;
     margin: 0px;
     box-shadow: none
 }
@@ -162,13 +165,17 @@ p, span{
 }
 
 #carousel-container{
+    position: absolute;
+    top: 30%;
+    left: 23%;
+    margin-left: -100px;
     width: 900px;
-    margin: 50px auto;
+    padding: 0px;
 }
 
 #carousel-slider{
     display: flex;
-    justify-content: flex-start;
+
     overflow-x: hidden;
 }
 
@@ -212,9 +219,9 @@ p, span{
 #bubble-container{
     align-items: center;
     display: flex;
-    position: relative;
-    top: -100px;
-    left: 375px;
+    position: absolute;
+    top: 450px;
+    left: 380px;
 }
 
 .bubble{
@@ -233,7 +240,7 @@ p, span{
     height: 10px;
     border-radius: 10px;
     background-color: var(--clr-light);
-    transform: translateX(-117.5px) translateY(-0.5px);
+    transform: translateX(-117.5px);
     /*transition: 1s ease-in-out*/
     
 }
