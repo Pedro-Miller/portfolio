@@ -237,11 +237,15 @@ p, span{
 }
 
 #dot{ /*29px de um pro outro*/
+    position: absolute;
+    top: 8.3px;
+    left: 125px;
     width: 10px;
     height: 10px;
     border-radius: 10px;
     background-color: var(--clr-light);
     transform: translateX(-117.5px);
+    transition: 1s;
     /*transition: 1s ease-in-out*/
     
 }
