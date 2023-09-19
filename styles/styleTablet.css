@@ -227,25 +227,11 @@ p, span{
 
 .bubble{
     border-color: var(--clr-light);
-    border-width: 2px;
+    border-width: 0.1em;
     border-style: solid;
-    margin: 5px;
-    width: 15px;
-    height: 15px;
-    border-radius: 10px;
+    margin: 0.3em;
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
     background-color: var(--clr-dark);
-}
-
-#dot{ /*29px de um pro outro*/
-    position: absolute;
-    top: 8.3px;
-    left: 125px;
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    background-color: var(--clr-light);
-    transform: translateX(-117.5px) translateY(-0.5px);
-    transition: 0.5s;
-    /*transition: 1s ease-in-out*/
-    
 }

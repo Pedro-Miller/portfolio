@@ -9,6 +9,7 @@ const carouselContainer = document.querySelector('#carousel-container')
 const next = document.getElementById('next-button')
 const previous = document.getElementById('previous-button')
 const dot = document.querySelector('#dot')
+const bubble = document.querySelectorAll('.bubble')
 let counter = 0
 let size = slides.length
 let initialX = null;
@@ -16,14 +17,16 @@ let initialY = null;
 let autoslider
 
 export function autoSlideHandler(){
+    bubble[counter].style.borderColor = 'var(--clr-dark)'
+    bubble[counter].style.backgroundColor = 'var(--clr-light)'
     if(screen.width > 1300){
         autoslider = setInterval(nextSlide, 3000)
+        carouselContainer.addEventListener('mouseenter', autoslideStop)
+        carouselContainer.addEventListener('mouseleave', autoslideStart)
     }
 }
 
 export function eventListenerHandler(){
-    carouselContainer.addEventListener('mouseenter', autoslideStop)
-    carouselContainer.addEventListener('mouseleave', autoslideStart)
     ourWork.addEventListener('mouseenter', dropdownourWork)
     ourWork.addEventListener('mouseleave', dropupourWork)
     dropdown.addEventListener('mouseenter', dropdownourWork)
@@ -66,33 +69,45 @@ function dropdownourWork(){
 function dropupourWork(){
     dropdown.style.display = 'none'
 }
-    
+
 
 
 function nextSlide(){
     if(counter == (size-1)){
         counter = 0
         slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
-        dot.style.transform = 'translateX(' + (-117.5+25*counter) +'px)' + 'translateY(-0.5px)'
+        bubble[counter].style.borderColor = 'var(--clr-dark)'
+        bubble[counter].style.backgroundColor = 'var(--clr-light)'
+        bubble[size-1].style.borderColor = 'var(--clr-light)'
+        bubble[size-1].style.backgroundColor = 'var(--clr-dark)'
     }
     else{
-    counter++
-    slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
-    dot.style.transform = 'translateX(' + (-117.5+25*counter) +'px)' + 'translateY(-0.5px)'
+        counter++
+        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
+        bubble[counter].style.borderColor = 'var(--clr-dark)'
+        bubble[counter].style.backgroundColor = 'var(--clr-light)'
+        bubble[counter-1].style.borderColor = 'var(--clr-light)'
+        bubble[counter-1].style.backgroundColor = 'var(--clr-dark)'
     }
 }
 
 
 function previousSlide(){
     if(counter == 0){
+        bubble[counter].style.borderColor = 'var(--clr-light)'
+        bubble[counter].style.backgroundColor = 'var(--clr-dark)'
         counter = (size-1)
         slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
-        dot.style.transform = 'translateX(' + (-117.5+25*counter) +'px)' + 'translateY(-0.5px)'
+        bubble[counter].style.borderColor = 'var(--clr-dark)'
+        bubble[counter].style.backgroundColor = 'var(--clr-light)'
     }
     else{
     counter--
-    slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
-    dot.style.transform = 'translateX(' + (-117.5+25*counter) +'px)' + 'translateY(-0.5px)'
+        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
+        bubble[counter].style.borderColor = 'var(--clr-dark)'
+        bubble[counter].style.backgroundColor = 'var(--clr-light)'
+        bubble[counter+1].style.borderColor = 'var(--clr-light)'
+        bubble[counter+1].style.backgroundColor = 'var(--clr-dark)'
     }
 }
 
