@@ -222,7 +222,7 @@ p, span{
     display: flex;
     position: absolute;
     top: 450px;
-    left: 380px;
+    left: calc(100vw * 0.42)
 }
 
 .bubble{

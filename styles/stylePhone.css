@@ -166,28 +166,31 @@ p, span{
 
 #carousel-container{
     position: absolute;
-    top: 200px;
+    top: 19vh;
     left: 0;
     right: 0;
     bottom: 0;
-    margin: auto;
-    width: 350px;
-    height: 300px;
+    margin: 0 auto;
+    width: 100vw;
+    height: calc(100vw * 0.85);
+    max-height: 500px;
     padding: 0px;
 }
 
 #carousel-slider{
     display: flex;
     overflow-x: hidden;
-    width: 350px;
-    height: 300px;
+    width: 100vw;
+    height: calc(100vw * 0.85);
+    max-height: 500px;
 }
 
 .slider-image{
-    flex-basis: 350px;
+    flex-basis: 100vw;
     flex-grow: 0;
     flex-shrink: 0;
-    height: 300px;
+    height: calc(100vw * 0.85);
+    max-height: 500px;
     transform: translateX(0px);
     transition: 0.5s ease-in-out;
 }
@@ -221,11 +224,10 @@ p, span{
 }
 
 #bubble-container{
-    align-items: center;
     display: flex;
-    position: absolute;
-    top: 260px;
-    left: 115px;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(calc(-6.5vw));
 }
 
 .bubble{
