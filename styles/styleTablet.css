@@ -265,6 +265,7 @@ p, span{
 }
 
 .mobile-link{
+    user-select: none;
     border: 0.1rem solid var(--clr-dark);
     text-align: center;
     width: 50vw;

@@ -1,3 +1,4 @@
+// DOM getters
 const themeToggle = document.querySelectorAll(".theme-toggle")
 const body = document.querySelector('body')
 const navbar = document.getElementById('navbar')
@@ -13,12 +14,18 @@ const mobileMenuButton = document.querySelector('#mobile-menu')
 const mobileMenu = document.querySelector('#dropdown-mobile')
 const dropdownMobile = document.querySelectorAll('.dropdown-list-mobile')
 const ourWorkMobile = document.querySelector('#dropdown-ourwork-mobile')
+
+// Global control variables
 let counter = 0
 let size = slides.length
 let initialX = null;
 let initialY = null;
 let autoslider
 let slideWidth = 900
+
+// Mobile menu computed style getters
+const mobileMenuStyleGet = window.getComputedStyle(mobileMenu)
+const ourWorkMobileStyleGet = window.getComputedStyle(dropdownMobile[0])
 
 
 
@@ -84,9 +91,9 @@ function dropupourWork(){
 }
 
 function dropdownourWorkMobile(){
-    if(dropdownMobile[0].style.display != 'none'){
+    let ourWorkMobileDisplay = ourWorkMobileStyleGet.getPropertyValue('display') 
+    if(ourWorkMobileDisplay != 'none'){
         dropdownMobile.forEach(item =>{item.style.display = 'none'})
-        console.log(dropdownMobile[0].style.display);
     }
     else{
         dropdownMobile.forEach(item =>{item.style.display = 'flex'})
@@ -94,7 +101,8 @@ function dropdownourWorkMobile(){
 }
 
 function openMenu(){
-    if(mobileMenu.style.display != 'none'){
+    let mobileMenuDisplay = mobileMenuStyleGet.getPropertyValue('display')
+    if(mobileMenuDisplay != 'none'){
         mobileMenu.style.display = 'none'
     }
     else{
