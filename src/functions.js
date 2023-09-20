@@ -8,13 +8,18 @@ const slides = document.querySelectorAll('.slider-image')
 const carouselContainer = document.querySelector('#carousel-container')
 const next = document.getElementById('next-button')
 const previous = document.getElementById('previous-button')
-const dot = document.querySelector('#dot')
 const bubble = document.querySelectorAll('.bubble')
+const mobileMenuButton = document.querySelector('#mobile-menu')
+const mobileMenu = document.querySelector('#dropdown-mobile')
+const dropdownMobile = document.querySelectorAll('.dropdown-list-mobile')
+const ourWorkMobile = document.querySelector('#dropdown-ourwork-mobile')
 let counter = 0
 let size = slides.length
 let initialX = null;
 let initialY = null;
 let autoslider
+let slideWidth = 900
+
 
 export function autoSlideHandler(){
     bubble[counter].style.borderColor = 'var(--clr-dark)'
@@ -35,12 +40,18 @@ export function eventListenerHandler(){
     previous.addEventListener('click', previousSlide)
     carouselContainer.addEventListener("touchstart", startTouch, false);
     carouselContainer.addEventListener("touchmove", moveTouch, false);
+    mobileMenuButton.addEventListener("touchstart", openMenu)
+    ourWorkMobile.addEventListener("touchstart", dropdownourWorkMobile)
 }
 
 export function darkModeGet(){
     if(theme == 'darkmode')
     {
         body.classList.toggle('darkmode')
+        mobileMenuButton.style.filter = 'invert(0)'
+    }
+    else{
+        mobileMenuButton.style.filter = 'invert(100)'
     }
 }
 
@@ -70,12 +81,30 @@ function dropupourWork(){
     dropdown.style.display = 'none'
 }
 
+function dropdownourWorkMobile(){
+    if(dropdownMobile[0].style.display != 'none'){
+        dropdownMobile.forEach(item =>{item.style.display = 'none'})
+        console.log(dropdownMobile[0].style.display);
+    }
+    else{
+        dropdownMobile.forEach(item =>{item.style.display = 'flex'})
+    }
+}
+
+function openMenu(){
+    if(mobileMenu.style.display != 'none'){
+        mobileMenu.style.display = 'none'
+    }
+    else{
+        mobileMenu.style.display = 'flex'
+    }
+}
 
 
 function nextSlide(){
     if(counter == (size-1)){
         counter = 0
-        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
+        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth*counter)+'px)'})
         bubble[counter].style.borderColor = 'var(--clr-dark)'
         bubble[counter].style.backgroundColor = 'var(--clr-light)'
         bubble[size-1].style.borderColor = 'var(--clr-light)'
@@ -83,7 +112,7 @@ function nextSlide(){
     }
     else{
         counter++
-        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
+        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth*counter)+'px)'})
         bubble[counter].style.borderColor = 'var(--clr-dark)'
         bubble[counter].style.backgroundColor = 'var(--clr-light)'
         bubble[counter-1].style.borderColor = 'var(--clr-light)'
@@ -97,13 +126,13 @@ function previousSlide(){
         bubble[counter].style.borderColor = 'var(--clr-light)'
         bubble[counter].style.backgroundColor = 'var(--clr-dark)'
         counter = (size-1)
-        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
+        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth*counter)+'px)'})
         bubble[counter].style.borderColor = 'var(--clr-dark)'
         bubble[counter].style.backgroundColor = 'var(--clr-light)'
     }
     else{
     counter--
-        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-900*counter)+'px)'})
+        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth*counter)+'px)'})
         bubble[counter].style.borderColor = 'var(--clr-dark)'
         bubble[counter].style.backgroundColor = 'var(--clr-light)'
         bubble[counter+1].style.borderColor = 'var(--clr-light)'
@@ -157,10 +186,13 @@ export function themeToggleHandler(){
     if(body.classList.contains('darkmode'))
     {
         localStorage.setItem('theme', 'darkmode')
+        mobileMenuButton.style.filter = 'invert(0)'
+        
     }
     else
     {
         localStorage.removeItem('theme')
+        mobileMenuButton.style.filter = 'invert(100)'
     }
     })})
 }
