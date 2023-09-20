@@ -167,11 +167,11 @@ p, span{
 
 #carousel-container{
     position: absolute;
-    top: 200px;
+    top: 19vh;
     left: 0;
     right: 0;
     bottom: 0;
-    margin: auto;
+    margin: 0 auto;
     width: 900px;
     height: 500px;
     padding: 0px;
@@ -220,11 +220,11 @@ p, span{
 }
 
 #bubble-container{
-    align-items: center;
     display: flex;
-    position: absolute;
-    top: 450px;
-    left: calc(100vw * 0.42)
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -30px;
 }
 
 .bubble{
