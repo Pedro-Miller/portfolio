@@ -14,6 +14,8 @@ const mobileMenuButton = document.querySelector('#mobile-menu')
 const mobileMenu = document.querySelector('#dropdown-mobile')
 const dropdownMobile = document.querySelectorAll('.dropdown-list-mobile')
 const ourWorkMobile = document.querySelector('#dropdown-ourwork-mobile')
+let width = screen.width
+
 
 // Global control variables
 let counter = 0
@@ -21,19 +23,19 @@ let size = slides.length
 let initialX = null;
 let initialY = null;
 let autoslider
-let slideWidth = 900
+let slideWidth
 
 // Mobile menu computed style getters
 const mobileMenuStyleGet = window.getComputedStyle(mobileMenu)
 const ourWorkMobileStyleGet = window.getComputedStyle(dropdownMobile[0])
-
+const slideStyleGet = window.getComputedStyle(slides[0])
 
 
 
 export function autoSlideHandler(){
     bubble[counter].style.borderColor = 'var(--clr-dark)'
     bubble[counter].style.backgroundColor = 'var(--clr-light)'
-    if(screen.width > 1300){
+    if(width > 1300){
         autoslider = setInterval(nextSlide, 3000)
         carouselContainer.addEventListener('mouseenter', autoslideStop)
         carouselContainer.addEventListener('mouseleave', autoslideStart)
@@ -51,7 +53,26 @@ export function eventListenerHandler(){
     carouselContainer.addEventListener("touchmove", moveTouch, false);
     mobileMenuButton.addEventListener("touchstart", openMenu)
     ourWorkMobile.addEventListener("touchstart", dropdownourWorkMobile)
+    window.addEventListener("resize", resizeHandler)
 }
+
+function resizeHandler(){
+    let width = screen.width
+    setTimeout(()=>{slideWidth = parseFloat(slideStyleGet.getPropertyValue('width'))
+    slides.forEach(slide =>{
+        slide.style.transform = 'translateX('+ (-slideWidth * counter)+'px)'
+    })}, 500)
+    if(width < 400){
+        bubble.forEach(bubble=>(bubble.style.width = '0.7em'))
+        bubble.forEach(bubble=>(bubble.style.height = '0.7em'))
+    }
+    else{
+        bubble.forEach(bubble=>(bubble.style.width = '1em'))
+        bubble.forEach(bubble=>(bubble.style.height = '1em'))
+    }
+    
+}
+
 
 export function darkModeGet(){
     if(theme == 'darkmode')
@@ -104,6 +125,7 @@ function openMenu(){
     let mobileMenuDisplay = mobileMenuStyleGet.getPropertyValue('display')
     if(mobileMenuDisplay != 'none'){
         mobileMenu.style.display = 'none'
+        dropdownMobile.forEach(item =>{item.style.display = 'none'})
     }
     else{
         mobileMenu.style.display = 'flex'
@@ -112,12 +134,10 @@ function openMenu(){
 
 
 function nextSlide(){
-    if(screen.width < 1000){
-        slideWidth = 450
-    }
+    slideWidth = parseFloat(slideStyleGet.getPropertyValue('width'))
     if(counter == (size-1)){
         counter = 0
-        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth*counter)+'px)'})
+        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth*  counter)+'px)'})
         bubble[counter].style.borderColor = 'var(--clr-dark)'
         bubble[counter].style.backgroundColor = 'var(--clr-light)'
         bubble[size-1].style.borderColor = 'var(--clr-light)'
@@ -125,8 +145,7 @@ function nextSlide(){
     }
     else{
         counter++
-        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth*counter)+'px)'})
-        console.log(slideWidth)
+        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth * counter)+'px)'})
         bubble[counter].style.borderColor = 'var(--clr-dark)'
         bubble[counter].style.backgroundColor = 'var(--clr-light)'
         bubble[counter-1].style.borderColor = 'var(--clr-light)'
@@ -136,20 +155,18 @@ function nextSlide(){
 
 
 function previousSlide(){
-    if(screen.width < 1000){
-        slideWidth = 500
-    }
+    slideWidth = parseFloat(slideStyleGet.getPropertyValue('width'))
     if(counter == 0){
         bubble[counter].style.borderColor = 'var(--clr-light)'
         bubble[counter].style.backgroundColor = 'var(--clr-dark)'
         counter = (size-1)
-        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth*counter)+'px)'})
+        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth * counter)+'px)'})
         bubble[counter].style.borderColor = 'var(--clr-dark)'
         bubble[counter].style.backgroundColor = 'var(--clr-light)'
     }
     else{
     counter--
-        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth*counter)+'px)'})
+        slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth * counter)+'px)'})
         bubble[counter].style.borderColor = 'var(--clr-dark)'
         bubble[counter].style.backgroundColor = 'var(--clr-light)'
         bubble[counter+1].style.borderColor = 'var(--clr-light)'
