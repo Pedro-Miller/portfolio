@@ -21,6 +21,8 @@ let autoslider
 let slideWidth = 900
 
 
+
+
 export function autoSlideHandler(){
     bubble[counter].style.borderColor = 'var(--clr-dark)'
     bubble[counter].style.backgroundColor = 'var(--clr-light)'
@@ -102,6 +104,9 @@ function openMenu(){
 
 
 function nextSlide(){
+    if(screen.width < 1000){
+        slideWidth = 450
+    }
     if(counter == (size-1)){
         counter = 0
         slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth*counter)+'px)'})
@@ -113,6 +118,7 @@ function nextSlide(){
     else{
         counter++
         slides.forEach(slide =>{slide.style.transform = 'translateX('+ (-slideWidth*counter)+'px)'})
+        console.log(slideWidth)
         bubble[counter].style.borderColor = 'var(--clr-dark)'
         bubble[counter].style.backgroundColor = 'var(--clr-light)'
         bubble[counter-1].style.borderColor = 'var(--clr-light)'
@@ -122,6 +128,9 @@ function nextSlide(){
 
 
 function previousSlide(){
+    if(screen.width < 1000){
+        slideWidth = 500
+    }
     if(counter == 0){
         bubble[counter].style.borderColor = 'var(--clr-light)'
         bubble[counter].style.backgroundColor = 'var(--clr-dark)'
