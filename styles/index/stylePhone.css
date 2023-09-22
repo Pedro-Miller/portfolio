@@ -44,13 +44,20 @@
 *{
     line-height: calc(1em + 0.5rem);
     box-sizing: border-box;
+    padding: 0px;
+}
+
+html{
+    max-width: 1300px !important;
+    padding: 0px;
 }
 
 body{
+    max-width: 1300px;
     height: 200vh;
-    overflow-x: hidden;
-    width: -webkit-fill-available;
+    width: 100% !important;
     margin: 0px;
+    padding: 0px;
     background-color: var(--clr-light);
 }
 
@@ -67,18 +74,24 @@ p, span{
     font-size: 1.5em;
 }
 
+.desktop{
+    display: none;
+}
+
 #navbar{
+    position: sticky;
+    top: 0px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: 145px;
-    background-image: url("../medias/bgBlue.jpg");
+    height: 17vh;
+    min-height: 115px;
+    background-image: url("../../medias/bgBlue.jpg");
     animation-name: var(--animation-light);
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-duration: 30s;
-    padding: 15px 0px;
     margin: 0px;
     box-shadow: none
 }
@@ -89,34 +102,10 @@ p, span{
     height: 125px;
 }
 
-#navbar-list{
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 800px;
-    padding: 0px;
-}
-
-.navbar-link{
-    text-decoration: none;
-    color: var(--clr-dark);
-    text-shadow: 1px 1px 10px var(--clr-dark);
-    font-size: 2rem;
-    padding: 54px 10px;
-}
-
-.navbar-link:hover{
-    background-color: var(--clr-hover);
-    transition: 0.3s ease-in-out;
-}
-
-#down-icon{
-    display: inline;
-    width: 50px;
-    height: 30px;
-    padding: 0px;
-    transform: translateY(6px) translateX(-6px);
+#mobile-menu{
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
 }
 
 .theme-toggle{
@@ -131,17 +120,13 @@ p, span{
 .sun{
     display: var(--theme-icon-sun);
     filter: invert();
-    transform: translateX(-25px);
 }
 
 .moon{
     display: var(--theme-icon-moon);
-    transform: translateX(-25px);
 }
 
-.mobile{
-    display: none;
-}
+
 
 #dropdown{
     display: none;
@@ -151,7 +136,7 @@ p, span{
     border-color: var(--clr-dark);
     border-width: 10px;
     position: fixed;
-    left: 38%;
+    left: 40%;
     z-index: 2;
     background-color: var(--clr-light);
     width: 40%;
@@ -177,29 +162,36 @@ p, span{
     color: var(--clr-light);
     background-color: var(--clr-dark);
     cursor: pointer;
-    transition: 0.5s ease-in-out;
-}
-
-#dropdown-ourwork{
-    transform: translateX(25px);
+    transition: 1s ease-in-out;
 }
 
 #carousel-container{
-    width: 900px;
-    margin: 50px auto;
+    position: absolute;
+    top: 19vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    width: 100vw;
+    height: calc(100vw * 0.85);
+    max-height: 350px;
+    padding: 0px;
 }
 
 #carousel-slider{
     display: flex;
-    justify-content: flex-start;
     overflow-x: hidden;
+    width: 100vw;
+    height: calc(100vw * 0.85);
+    max-height: 350px;
 }
 
 .slider-image{
-    flex-basis: 900px;
+    flex-basis: 100vw;
     flex-grow: 0;
     flex-shrink: 0;
-    height: 500px;
+    height: calc(100vw * 0.85);
+    max-height: 350px;
     transform: translateX(0px);
     transition: 0.5s ease-in-out;
 }
@@ -233,11 +225,11 @@ p, span{
 }
 
 #bubble-container{
-    align-items: center;
     display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    top: -100px;
-    left: 375px;
+    top: -30px;
 }
 
 .bubble{
@@ -247,7 +239,53 @@ p, span{
     margin: 0.3em;
     width: 1em;
     height: 1em;
-    border-radius: 2em;
+    border-radius: 1em;
     background-color: var(--clr-dark);
 }
 
+#dropdown-mobile{
+    z-index: 7;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 17vh;
+    width: 100vw;
+    height: 83vh;
+    background-color: var(--clr-light);
+
+}
+
+.dropdown-list-mobile{
+    list-style: none;
+    display: none;
+    align-items: center;
+}
+
+.dropdown-li-mobile{
+    color: var(--clr-dark);
+    padding: 10px;
+    font-size: 1.5em;
+    padding: 1rem;
+    user-select: none;
+}
+
+.mobile-link{
+    user-select: none;
+    border: 0.1rem solid var(--clr-dark);
+    text-align: center;
+    width: 100vw;
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--clr-dark);
+    font-size: 1.5em;
+    user-select: none;
+}
+
+#down-icon{
+    display: inline;
+    width: 50px;
+    height: 30px;
+    padding: 0px;
+    transform: translateY(6px) translateX(-6px);
+}
