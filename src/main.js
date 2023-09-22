@@ -1,9 +1,9 @@
-import * as fun from './functions.js'
+import * as p1 from './prototype1-functions.js'
 
 window.onload= function(){
-    fun.darkModeGet()
-    fun.eventListenerHandler()
-    fun.themeToggleHandler()
-    fun.scrollHandler()
-    fun.autoSlideHandler()
+    p1.darkModeGet()
+    p1.eventListenerHandler()
+    p1.themeToggleHandler()
+    p1.scrollHandler()
+    p1.autoSlideHandler()
 }

@@ -1,19 +1,19 @@
 // DOM getters
-const themeToggle = document.querySelectorAll(".theme-toggle")
+const themeToggle = document.querySelectorAll(".prototype1-theme-toggle")
 const body = document.querySelector('body')
-const navbar = document.getElementById('navbar')
+const navbar = document.getElementById('prototype1-navbar')
 const theme = localStorage.getItem('theme')
-const ourWork = document.getElementById('dropdown-ourwork')
-const dropdown = document.querySelector('#dropdown')
-const slides = document.querySelectorAll('.slider-image')
-const carouselContainer = document.querySelector('#carousel-container')
-const next = document.getElementById('next-button')
-const previous = document.getElementById('previous-button')
-const bubble = document.querySelectorAll('.bubble')
-const mobileMenuButton = document.querySelector('#mobile-menu')
-const mobileMenu = document.querySelector('#dropdown-mobile')
-const dropdownMobile = document.querySelectorAll('.dropdown-list-mobile')
-const ourWorkMobile = document.querySelector('#dropdown-ourwork-mobile')
+const ourWork = document.getElementById('prototype1-dropdown-ourwork')
+const dropdown = document.querySelector('#prototype1-dropdown')
+const slides = document.querySelectorAll('.prototype1-slider-image')
+const carouselContainer = document.querySelector('#prototype1-carousel-container')
+const next = document.getElementById('prototype1-next-button')
+const previous = document.getElementById('prototype1-previous-button')
+const bubble = document.querySelectorAll('.prototype1-bubble')
+const mobileMenuButton = document.querySelector('#prototype1-mobile-menu')
+const mobileMenu = document.querySelector('#prototype1-dropdown-mobile')
+const dropdownMobile = document.querySelectorAll('.prototype1-dropdown-list-mobile')
+const ourWorkMobile = document.querySelector('#prototype1-dropdown-ourwork-mobile')
 let width = screen.width
 
 
@@ -77,7 +77,7 @@ function resizeHandler(){
 export function darkModeGet(){
     if(theme == 'darkmode')
     {
-        body.classList.toggle('darkmode')
+        body.classList.toggle('prototype1-darkmode')
         mobileMenuButton.style.filter = 'invert(0)'
     }
     else{
@@ -216,8 +216,8 @@ function moveTouch(e) {
 
 export function themeToggleHandler(){
     themeToggle.forEach(btn =>{btn.addEventListener('click', ()=>{
-    body.classList.toggle('darkmode')
-    if(body.classList.contains('darkmode'))
+    body.classList.toggle('prototype1-darkmode')
+    if(body.classList.contains('prototype1-darkmode'))
     {
         localStorage.setItem('theme', 'darkmode')
         mobileMenuButton.style.filter = 'invert(0)'
