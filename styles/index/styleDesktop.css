@@ -20,9 +20,10 @@
 }
 
 @keyframes index-animation{
-    0%  {transform: rotateX('angle');}
-    50% {background-position: center center;}
-    100% {background-position: center top;}
+    0%  {background-position: 5vw 0vh;}
+    25% {background-position: 10vw 0vh;}
+    50% {background-position: 20vw 0vh;}
+    100% {background-position: 30vw 0vh;}
 }  
 
 .index-darkmode{
@@ -177,11 +178,19 @@ p, span{
 
 #index-animation{ 
     position: absolute;
-    top: 0vh;
-    width: 100vw;
-    height: 100vh;
+    top: -10vh;
+    width: 200vw;
+    height: 110vh;
     background-image: url('../../medias/bgSpace.png');
-    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    animation-name: index-animation;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 30s;
+    
 }
 
 

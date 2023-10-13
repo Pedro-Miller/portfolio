@@ -1,6 +1,7 @@
 // DOM getters
 const themeToggle = document.querySelectorAll(".index-theme-toggle")
 const moon = document.querySelectorAll('.index-moon')
+const sun = document.querySelectorAll('.index-sun')
 const body = document.querySelector('body')
 const navbar = document.getElementById('index-navbar')
 const navbarLink = document.querySelectorAll('.index-navbar-link')
@@ -44,13 +45,13 @@ export function scrollHandler(){
     window.onscroll = function() {scrollFunction()};
     function scrollFunction() {
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            navbar.style.backgroundColor = 'var(--clr-dark)'
-            navbarLink.forEach(link =>{link.style.color = 'var(--clr-light)'})
-            moon.forEach(moon => {moon.style.filter = 'invert(0)'})
+            navbar.style.backgroundColor = 'var(--clr-light)'
+            navbarLink.forEach(link =>{link.style.color = 'var(--clr-dark)'})
+            sun.forEach(moon => {moon.style.filter = 'invert(0)'})
         } else {
             navbar.style.backgroundColor = 'transparent'
             navbarLink.forEach(link =>{link.style.color = 'aliceblue'})
-            moon.forEach(moon => {moon.style.filter = 'invert(100)'})
+            sun.forEach(moon => {moon.style.filter = 'invert(100)'})
         }
     }
 }
