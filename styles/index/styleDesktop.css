@@ -176,13 +176,18 @@ p, span{
     transform: translateX(25px);
 }
 
-#index-animation{ 
+#index-animation-box{ 
     position: absolute;
-    top: -10vh;
-    width: 200vw;
-    height: 110vh;
-    background-image: url('../../medias/bgSpace.png');
-    background-position: right;
+    top: 0vh;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);;
 }
 
+#index-animation{
+    width: 100%;
+    height: 100%;
+}
 
+/*https://w3schoolweb.com/parallax-pixel-stars-css/*/
