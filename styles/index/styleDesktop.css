@@ -182,8 +182,8 @@ p, span{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);;
-}
+    background: radial-gradient(ellipse at bottom, rgb(78, 19, 206) 0%, rgb(1, 0, 22) 100%);
+} 
 
 #index-animation{
     width: 100%;
