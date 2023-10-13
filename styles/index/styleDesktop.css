@@ -72,7 +72,7 @@ p, span{
     padding: 15px 0px;
     margin: 0px;
     box-shadow: none;
-    transition: background-color 500ms;
+    transition: background-color 500ms, box-shadow 400ms;
 }
 
 #index-logo{
@@ -182,15 +182,7 @@ p, span{
     width: 200vw;
     height: 110vh;
     background-image: url('../../medias/bgSpace.png');
-    background-attachment: fixed;
     background-position: right;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    animation-name: index-animation;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-duration: 30s;
-    
 }
 
 

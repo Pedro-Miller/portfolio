@@ -44,12 +44,14 @@ export function darkModeGet(){
 export function scrollHandler(){
     window.onscroll = function() {scrollFunction()};
     function scrollFunction() {
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
             navbar.style.backgroundColor = 'var(--clr-light)'
+            navbar.style.boxShadow = '0px 0px 1px var(--clr-dark)'
             navbarLink.forEach(link =>{link.style.color = 'var(--clr-dark)'})
             sun.forEach(moon => {moon.style.filter = 'invert(0)'})
         } else {
             navbar.style.backgroundColor = 'transparent'
+            navbar.style.boxShadow = 'none'
             navbarLink.forEach(link =>{link.style.color = 'aliceblue'})
             sun.forEach(moon => {moon.style.filter = 'invert(100)'})
         }
