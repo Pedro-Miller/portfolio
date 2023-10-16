@@ -190,4 +190,11 @@ p, span{
     height: 100%;
 }
 
+#index-main{
+    position: absolute;
+    top: 101vh;
+    left: 10vw;
+    width: 80vw;
+}
+
 /*https://w3schoolweb.com/parallax-pixel-stars-css/*/

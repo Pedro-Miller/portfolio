@@ -44,7 +44,7 @@ export function darkModeGet(){
 export function scrollHandler(){
     window.onscroll = function() {scrollFunction()};
     function scrollFunction() {
-        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+        if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
             navbar.style.backgroundColor = 'var(--clr-light)'
             navbar.style.boxShadow = '0px 0px 1px var(--clr-dark)'
             navbarLink.forEach(link =>{link.style.color = 'var(--clr-dark)'})
