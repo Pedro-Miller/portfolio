@@ -6,12 +6,13 @@ const body = document.querySelector('body')
 const navbar = document.getElementById('index-navbar')
 const navbarLink = document.querySelectorAll('.index-navbar-link')
 const theme = localStorage.getItem('theme')
-const ourWork = document.getElementById('index-dropdown-ourwork')
-const dropdown = document.querySelector('#index-dropdown')
 const mobileMenuButton = document.querySelector('#index-mobile-menu')
 const mobileMenu = document.querySelector('#index-dropdown-mobile')
 const dropdownMobile = document.querySelectorAll('.index-dropdown-list-mobile')
 const ourWorkMobile = document.querySelector('#index-dropdown-ourwork-mobile')
+const animationBox = document.querySelector('#index-animation-box')
+const typing1 = document.querySelector('.index-typing1')
+const typing2 = document.querySelector('.index-typing2')
 let width = screen.width
 
 
@@ -21,10 +22,6 @@ const ourWorkMobileStyleGet = window.getComputedStyle(dropdownMobile[0])
 
 
 export function eventListenerHandler(){
-    ourWork.addEventListener('mouseenter', dropdownourWork)
-    ourWork.addEventListener('mouseleave', dropupourWork)
-    dropdown.addEventListener('mouseenter', dropdownourWork)
-    dropdown.addEventListener('mouseleave', dropupourWork)
     mobileMenuButton.addEventListener("touchstart", openMenu)
     ourWorkMobile.addEventListener("touchstart", dropdownourWorkMobile)
 }
@@ -44,16 +41,14 @@ export function darkModeGet(){
 export function scrollHandler(){
     window.onscroll = function() {scrollFunction()};
     function scrollFunction() {
+        typing1.style.fontSize = (9 - (document.documentElement.scrollTop/100))+'vh'
+        typing2.style.fontSize = (9 - (document.documentElement.scrollTop/100))+'vh'
+        typing1.style.top = (53 - 4*(document.documentElement.scrollTop/100))+'vh'
+        typing2.style.top = (63 - 5*(document.documentElement.scrollTop/100))+'vh'
         if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
-            navbar.style.backgroundColor = 'var(--clr-light)'
-            navbar.style.boxShadow = '0px 0px 1px var(--clr-dark)'
-            navbarLink.forEach(link =>{link.style.color = 'var(--clr-dark)'})
-            sun.forEach(moon => {moon.style.filter = 'invert(0)'})
+            animationBox.style.boxShadow = '0px 0px 1px var(--clr-dark)'
         } else {
-            navbar.style.backgroundColor = 'transparent'
-            navbar.style.boxShadow = 'none'
-            navbarLink.forEach(link =>{link.style.color = 'aliceblue'})
-            sun.forEach(moon => {moon.style.filter = 'invert(100)'})
+            animationBox.style.boxShadow = 'none'
         }
     }
 }
