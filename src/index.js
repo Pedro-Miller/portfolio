@@ -7,4 +7,5 @@ window.onload= function(){
     idx.eventListenerHandler()
     idx.themeToggleHandler()
     idx.scrollHandler()
+    idx.resizeHandler()
 }
